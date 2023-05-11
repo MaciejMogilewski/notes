@@ -95,8 +95,9 @@ function createPizza5(name, sizes) {
 const pizza5 = createPizza5('margarita', ['small']);
 // Class
 class Pizza7 {
+    name;
+    toppings = [];
     constructor(name) {
-        this.toppings = [];
         this.name = name;
     }
     addTopping(topping) {
@@ -107,9 +108,10 @@ const pizza7 = new Pizza7('hawajska');
 pizza7.addTopping('cebula');
 // Class: Access modifiers
 class Pizza8 {
+    name;
+    toppings = [];
     constructor(name) {
         this.name = name;
-        this.toppings = [];
     }
     addTopping(topping) {
         this.toppings.push(topping);
@@ -120,6 +122,7 @@ pizza8.addTopping('ziemniaki');
 // pizza8.name = '42' nie działa, bo name jest readonly
 // Class: Setters nad Getters
 class Sizes3 {
+    sizes;
     constructor(sizes) {
         this.sizes = sizes;
     }
@@ -135,6 +138,8 @@ const sizes4 = sizes3.availableSizes;
 sizes3.availableSizes = ['large'];
 // Class: Inheritance extends
 class Pizza9 extends Sizes3 {
+    name;
+    sizes;
     constructor(name, sizes) {
         super(sizes);
         this.name = name;
@@ -146,16 +151,18 @@ console.log(pizza9.name);
 console.log(pizza9.sizes);
 pizza9.availableSizes = ['large'];
 class Sizes4 {
+    sizes;
+    availableSizes = [];
     constructor(sizes) {
         this.sizes = sizes;
-        this.availableSizes = [];
     }
 }
 class Pizza10 extends Sizes4 {
+    name;
+    toppings = [];
     constructor(name, sizes) {
         super(sizes);
         this.name = name;
-        this.toppings = [];
     }
     updateSizes(sizes) {
         this.sizes = sizes;
